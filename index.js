@@ -63,7 +63,7 @@ async function addUrl(url) {
   const data = await loadData();
 
   if (data[url]) {
-    console.log(chalk.yellow(`⚠️  URL already monitored: ${url}`));
+    console.log(chalk.yellow(`URL already monitored: ${url}`));
     return;
   }
 
@@ -79,9 +79,9 @@ async function addUrl(url) {
     };
 
     await saveData(data);
-    console.log(chalk.green(`✓ Added and initialized: ${url}`));
+    console.log(chalk.green(`Added and initialized: ${url}`));
   } catch (error) {
-    console.log(chalk.red(`✗ Error fetching URL: ${error.message}`));
+    console.log(chalk.red(`Error fetching URL: ${error.message}`));
   }
 }
 
@@ -190,13 +190,13 @@ async function removeUrl(urlOrNumber) {
   const data = await loadData();
 
   if (!data[url]) {
-    console.log(chalk.red(`✗ URL not found: ${url}`));
+    console.log(chalk.red(`URL not found: ${url}`));
     return;
   }
 
   delete data[url];
   await saveData(data);
-  console.log(chalk.green(`✓ Removed: ${url}`));
+  console.log(chalk.green(`Removed: ${url}`));
 }
 
 // Watch a URL continuously
@@ -217,14 +217,14 @@ async function watchUrl(urlOrNumber, options) {
         checkCount: 0
       };
       await saveData(data);
-      console.log(chalk.green(`✓ URL added to monitoring\n`));
+      console.log(chalk.green(`URL added to monitoring\n`));
     } catch (error) {
-      console.log(chalk.red(`✗ Error initializing URL: ${error.message}`));
+      console.log(chalk.red(`Error initializing URL: ${error.message}`));
       return;
     }
   }
 
-  console.log(chalk.cyan.bold(`👁️  Watching: ${url}`));
+  console.log(chalk.cyan.bold(`Watching: ${url}`));
   console.log(chalk.gray(`Checking every ${interval} seconds. Press Ctrl+C to stop.\n`));
 
   let checkNumber = 0;
@@ -250,7 +250,7 @@ async function watchUrl(urlOrNumber, options) {
         await saveData(data);
 
         console.log(chalk.green.bold('CHANGED! ✨'));
-        console.log(chalk.yellow(`🔔 Page has been updated at ${timestamp}\n`));
+        console.log(chalk.yellow(`Page has been updated at ${timestamp}\n`));
       } else {
         await saveData(data);
         console.log(chalk.gray('no change'));
@@ -300,9 +300,9 @@ async function openInBrowser(urlOrNumber) {
     }
 
     await execAsync(command);
-    console.log(chalk.green('✓ Opened in browser'));
+    console.log(chalk.green('Opened in browser'));
   } catch (error) {
-    console.log(chalk.red(`✗ Error opening browser: ${error.message}`));
+    console.log(chalk.red(`Error opening browser: ${error.message}`));
   }
 }
 
@@ -325,7 +325,7 @@ async function monitorUrls(urlsOrNumbers, options) {
       if (data[url]) {
         urlsToMonitor.push(url);
       } else {
-        console.log(chalk.yellow(`⚠️  Skipping unknown URL: ${item}`));
+        console.log(chalk.yellow(`Skipping unknown URL: ${item}`));
       }
     }
   }
@@ -335,7 +335,7 @@ async function monitorUrls(urlsOrNumbers, options) {
     return;
   }
 
-  console.log(chalk.cyan.bold(`👁️  Monitoring ${urlsToMonitor.length} page(s)`));
+  console.log(chalk.cyan.bold(`Monitoring ${urlsToMonitor.length} page(s)`));
   console.log(chalk.gray(`Checking every ${interval} seconds. Press Ctrl+C to stop.\n`));
 
   // Display URLs being monitored
@@ -384,7 +384,7 @@ async function monitorUrls(urlsOrNumbers, options) {
     await saveData(data);
 
     if (changedCount > 0) {
-      console.log(chalk.yellow(`\n🔔 ${changedCount} page(s) changed!\n`));
+      console.log(chalk.yellow(`\n${changedCount} page(s) changed!\n`));
     } else {
       console.log('');
     }
@@ -399,7 +399,7 @@ async function monitorUrls(urlsOrNumbers, options) {
   // Handle Ctrl+C gracefully
   process.on('SIGINT', () => {
     clearInterval(intervalId);
-    console.log(chalk.cyan(`\n\n✓ Stopped monitoring`));
+    console.log(chalk.cyan(`\n\nStopped monitoring`));
     console.log(chalk.gray(`Total checks performed: ${checkNumber}`));
     process.exit(0);
   });

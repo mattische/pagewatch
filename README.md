@@ -60,7 +60,7 @@ pagewatch check https://example.com
 pagewatch check 1
 ```
 
-### Watch a page continuously
+### Watch a page or monitor several pages continuously
 
 Watch a page in real-time with custom interval:
 
@@ -77,6 +77,9 @@ pagewatch watch 1 -i 10
 
 # Short form
 pagewatch watch 1 --interval 5
+
+# Monitor a list of pages (1, 2 and 4 from list) with an interval of 5 seconds
+pagewatch monitor 1 2 4 -i 5
 ```
 
 The script will:
