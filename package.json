@@ -1,6 +1,6 @@
 {
   "name": "@mattische/pagewatch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Monitor webpage changes from the CLI. Watch URLs continuously or check on-demand.",
   "main": "index.js",
