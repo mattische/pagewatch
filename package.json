@@ -1,0 +1,43 @@
+{
+  "name": "@mattische/pagewatch",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Monitor webpage changes from the CLI. Watch URLs continuously or check on-demand.",
+  "main": "index.js",
+  "bin": {
+    "pagewatch": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "cli",
+    "monitor",
+    "webpage",
+    "watch",
+    "website-monitor",
+    "change-detection",
+    "page-watcher",
+    "url-monitor",
+    "web-scraping",
+    "site-monitor"
+  ],
+  "author": "mattische",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattische/pagewatch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mattische/pagewatch/issues"
+  },
+  "homepage": "https://github.com/mattische/pagewatch#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.5",
+    "commander": "^12.0.0"
+  }
+}
