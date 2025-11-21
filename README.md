@@ -2,6 +2,8 @@
 
 Monitor webpage changes from the CLI. Watch URLs continuously or check on-demand.
 
+[npjms.com](https://www.npmjs.com/package/@mattische/pagewatch)
+
 ```bash
 # Install
 npm install -g @mattische/pagewatch
@@ -158,22 +160,10 @@ Check every 5 minutes (300 seconds) if the product page updates.
 pagewatch add https://docs.example.com/api
 pagewatch check
 ```
-Add to cron for daily checks.
+Add to cron for daily checks.  
+Or use with pm.
 
-### 3. Track competitors
-```bash
-pagewatch add https://competitor.com/pricing
-pagewatch add https://competitor.com/features
-pagewatch check
-```
-
-### 4. Monitor government sites
-```bash
-pagewatch watch https://government.site/regulations -i 3600
-```
-Check every hour (3600 seconds).
-
-### 5. Automatic monitoring with cron
+### 3. Automatic monitoring with cron
 
 Add to crontab (`crontab -e`):
 
@@ -190,7 +180,7 @@ Add to crontab (`crontab -e`):
 - Uses SHA256 hash to detect content changes
 - Saves data in `~/.pagewatch/pages.json`
 - Color-coded output (green = changed, blue = checking, gray = no change)
-- Beautiful tables with `cli-table3`
+- Tables with `cli-table3`
 
 ## Dependencies
 
@@ -198,36 +188,11 @@ Add to crontab (`crontab -e`):
 - `cli-table3` - Beautiful tables
 - `commander` - CLI framework
 
-## Publishing to npm
-
-To publish this package to npm (requires npm account):
-
-```bash
-# 1. Login to npm (first time)
-npm login
-
-# 2. Test that package is correctly configured
-npm pack --dry-run
-
-# 3. Publish to npm (scoped packages require public access)
-npm publish --access public
-
-# To update the package later:
-npm version patch  # for bugfixes (1.0.0 -> 1.0.1)
-npm version minor  # for new features (1.0.0 -> 1.1.0)
-npm version major  # for breaking changes (1.0.0 -> 2.0.0)
-npm publish
-```
-
-After publishing, users can install the package globally:
-```bash
-npm install -g @mattische/pagewatch
-pagewatch list
-```
-
 ## Author
 
 Created by **mattische**
+
+npm: https://www.npmjs.com/package/@mattische/pagewatch
 
 ## License
 
